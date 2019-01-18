@@ -16,6 +16,10 @@ function PostPage(props) {
   const [searchData, setSearchData] = useState([...props.data]);
   const [addLike, setAddLike] = useState([]);
 
+  useEffect(() => {
+    setAddLike({ addLike: Array(props.data.length).fill(false) });
+  });
+
   return (
     <div>
       <SearchBarContainer data={props.data} searchData={searchData} />

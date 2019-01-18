@@ -26,7 +26,7 @@ export const authenticate = App => Login =>
     });
     //conditional statement to decide which page to render
     return !this.state.currentUser ? (
-      <Login data={data} />
+      <Login data={data} currentUser={currentUser} />
     ) : (
       <App data={data} />
     );
