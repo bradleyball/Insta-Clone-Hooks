@@ -69,7 +69,7 @@ function SearchBarContainer(props) {
           css={searchInstagramIcon}
         />
       </div>
-      <SearchBar data={props.data} />
+      <SearchBar data={props.data} searchData={props.searchData} />
       <div css={rightSearchContainer}>
         <img
           src={require(`./Images/largeCompass.png`)}
