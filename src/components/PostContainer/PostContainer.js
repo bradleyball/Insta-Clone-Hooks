@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 /**@jsx jsx */
-
 import React from "react";
 import PostHeader from "./PostHeader";
 import PostPicture from "./PostPicture";
@@ -27,7 +26,7 @@ function PostContainer(props) {
       <PostPicture data={props.data} />
       <PostIcons data={props.data} addLike={props.addLike} />
       <div css={styledCommentContainer}>
-        <CommentContainer data={props.data} />
+        <CommentContainer data={props.data} searchData={props.searchData} />
       </div>
     </div>
   );

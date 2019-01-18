@@ -21,7 +21,7 @@ function CommentContainer(props) {
       {props.data.comments.map(comment => (
         <Comment username={comment.username} text={comment.text} />
       ))}
-      <AddComment data={props.data} />
+      <AddComment data={props.data} searchData={props.searchData} />
     </div>
   );
 }
