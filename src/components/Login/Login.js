@@ -18,8 +18,14 @@ function Login(props) {
   const handleSubmit = e => {
     switch (e.target.name) {
       case "loginForm":
-        this.loginUser();
+        loginUser();
     }
+  };
+
+  const loginUser = () => {
+    this.setCurrentUser({
+      currentUser: props.inputUsername
+    });
   };
 
   return (

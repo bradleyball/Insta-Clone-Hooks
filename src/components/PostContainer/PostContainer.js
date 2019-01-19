@@ -24,9 +24,18 @@ function PostContainer(props) {
     <div css={styledPostContainer}>
       <PostHeader data={props.data} />
       <PostPicture data={props.data} />
-      <PostIcons data={props.data} addLike={props.addLike} />
+      <PostIcons
+        data={props.data}
+        addLike={props.addLike}
+        setAddLike={props.setAddLike}
+        searchData={props.searchData}
+      />
       <div css={styledCommentContainer}>
-        <CommentContainer data={props.data} searchData={props.searchData} />
+        <CommentContainer
+          data={props.data}
+          searchData={props.searchData}
+          setSearchData={props.setSearchData}
+        />
       </div>
     </div>
   );

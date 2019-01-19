@@ -17,9 +17,7 @@ function AddComment(props) {
   const [commentInputText, setCommentInputText] = useState("");
 
   const handleCommentInputText = e => {
-    setCommentInputText({
-      [e.target.name]: e.target.value
-    });
+    setCommentInputText(e.target.value);
   };
 
   const addComment = (e, username) => {
@@ -35,7 +33,8 @@ function AddComment(props) {
       return post;
     });
 
-    this.setState({ searchData, inputText: "" });
+    setCommentInputText("");
+    props.setSearchData(props.searchData);
   };
 
   return (

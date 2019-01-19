@@ -25,28 +25,20 @@ const likesOnPost = css`
 `;
 
 function PostIcons(props) {
-  const toggleHeart = e => {
-    const index = props.data.findIndex(
-      post => post.username === e.target.dataset.username
-    );
+  let [likes, setLikes] = useState(props.data.likes);
+  let [updated, setUpdated] = useState(false);
 
-    const addLike = [...props.addLike];
-    addLike.splice(index, 1, !addLike[index]);
-    props.setAddLike({
-      addLike
-    });
-  };
-
-  const handleClick = e => {
-    switch (e.target.dataset.button) {
-      case "toggleHeart":
-        toggleHeart(e);
-        break;
+  const updateLikes = () => {
+    if (updated === false) {
+      return setUpdated(true);
+    } else {
+      setUpdated(false);
     }
   };
 
   return (
     <div>
+      {console.log(updated)}
       <div css={styledIconContainer}>
         <div css={likeAndCommentIconContainer}>
           <img
@@ -55,7 +47,7 @@ function PostIcons(props) {
             css={likeAndCommentIcons}
             data-username={props.username}
             data-button="toggleHeart"
-            onClick={handleClick}
+            onClick={updateLikes}
           />
           <img
             src={require(`../SearchBar/Images/bubble.png`)}
@@ -65,7 +57,7 @@ function PostIcons(props) {
         </div>
 
         <a href="#" css={likesOnPost}>
-          {props.addLike ? props.data.likes + 1 : props.data.likes} likes
+          {!updated ? likes : likes + 1} likes
         </a>
       </div>
     </div>

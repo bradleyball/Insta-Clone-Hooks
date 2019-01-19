@@ -13,16 +13,23 @@ const parentPostContainer = css`
 `;
 
 function PostPage(props) {
-  const [searchData, setSearchData] = useState([...props.data]);
+  const [searchData, setSearchData] = useState(props.data);
   const [addLike, setAddLike] = useState([]);
 
-  useEffect(() => {
-    setAddLike({ addLike: Array(props.data.length).fill(false) });
-  });
+  useEffect(
+    () => {
+      setAddLike(Array(props.data.length).fill(false));
+    },
+    [props.data]
+  );
 
   return (
     <div>
-      <SearchBarContainer data={props.data} searchData={searchData} />
+      <SearchBarContainer
+        data={props.data}
+        searchData={searchData}
+        setSearchData={setSearchData}
+      />
 
       <div css={parentPostContainer}>
         {searchData.map((dataOnMap, index) => {
@@ -30,7 +37,9 @@ function PostPage(props) {
             <PostContainer
               data={dataOnMap}
               addLike={addLike[index]}
+              setAddLike={setAddLike}
               searchData={searchData}
+              setSearchData={setSearchData}
             />
           );
         })}

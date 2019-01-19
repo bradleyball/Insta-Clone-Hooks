@@ -27,12 +27,8 @@ function SearchBar(props) {
       ? props.data.filter(post => post.username.startsWith(query))
       : [...props.data];
 
-    props.setSearchData({
-      searchData: results
-    });
-    setInputSearch({
-      inputSearch: query
-    });
+    props.setSearchData(results);
+    setInputSearch(query);
   };
 
   return (
